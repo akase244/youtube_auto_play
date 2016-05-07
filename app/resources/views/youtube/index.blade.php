@@ -152,6 +152,10 @@
                 $('table.play_lists tr').css('background-color', '#FFFFFF');
                 $('table.play_lists tr').eq(playIndex).css('background-color', '#2D88B3');
 
+                // 選択した曲の文字色を変更
+                $('table.play_lists tr').css('color', '#000000');
+                $('table.play_lists tr').eq(playIndex).css('color', '#FFFFFF');
+
                 // 動画を読み込み
                 //player.loadVideoById(videoIds[playIndex]);
                 loadPlayer(playIndex);
