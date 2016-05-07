@@ -22,7 +22,7 @@ class YoutubeController extends Controller
         $tweets = [];
         $client = new \GuzzleHttp\Client();
         if ($count > 0) {
-            $max = ($count > 10) ? 10 : $count;
+            $max = ($count >= 10) ? 10 : $count;
             for ($i = 0; $i < $max; $i++) {
                 while (true) {
                     $offset = mt_rand(1, $count) - 1;
@@ -39,12 +39,13 @@ class YoutubeController extends Controller
                         ]);
                         $body = json_decode($res->getBody());
                         if ($body->items) {
+                            $item = $body->items[0];
                             $index = count($tweets);
                             $tweets[$index] = $tweet[0];
-                            $tweets[$index]->title = $body->items[0]->snippet->title;
-                            $tweets[$index]->thumbnail = $body->items[0]->snippet->thumbnails->default->url;
+                            $tweets[$index]->title = $item->snippet->title;
+                            $tweets[$index]->thumbnail = $item->snippet->thumbnails->default->url;
+                            break;
                         }
-                        break;
                     }
                 }
             }
