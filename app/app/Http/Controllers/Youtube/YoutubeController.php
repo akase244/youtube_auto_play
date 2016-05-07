@@ -25,7 +25,7 @@ class YoutubeController extends Controller
             $max = ($count > 10) ? 10 : $count;
             for ($i = 0; $i < $max; $i++) {
                 while (true) {
-                    $offset = rand(1, $count) - 1;
+                    $offset = mt_rand(1, $count) - 1;
                     $limit = 1;
                     $tweet = DB::table('tweets')->skip($offset)->take($limit)->get();
                     if ($tweet) {
