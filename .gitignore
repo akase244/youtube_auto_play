@@ -1,0 +1,35 @@
+### Composer template
+composer.phar
+vendor/
+
+### PhpStorm
+.idea
+
+### Sass template
+.sass-cache/
+*.css.map
+
+### Windows template
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Vagrant
+Vagrantfile
+.vagrant/
+
+# for empty dir
+!.gitkeep
