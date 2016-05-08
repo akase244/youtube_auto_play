@@ -170,25 +170,25 @@
     </head>
     <body>
         <div class="container">
-            <div class="content">
+            <div class="content" style="width: 600px;">
                 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
                 <div>
                     <span class="prev" style="font-size: xx-large; cursor: pointer;">◁</span>
                     <div id="player" style="vertical-align: middle;"></div>
                     <span class="next" style="font-size: xx-large; cursor: pointer;">▷</span>
-                    <div><span class="title" style="font-size: large;"></span></div>
+                    <div><span class="title" style="font-size: large; color: #2D88B3;"></span></div>
                 </div>
 @if (count($tweets) > 0)
-                <table class="play_lists" style="width: 500px; margin-top: 30px;">
+                <table class="play_lists" style="width: 500px; margin: 30px auto;">
     @foreach ($tweets as $key => $tweet)
                 <tr>
                     <th><img src="{{ $tweet->thumbnail }}" style="vertical-align: middle;"></th>
-                    <td><span>{{ $key + 1 }}. {{ $tweet->title }}</span></td>
+                    <td style="text-align: left;"><span>{{ $key + 1 }}. {{ $tweet->title }}</span></td>
                 </tr>
     @endforeach
                 </table>
 @endif
-            <div class="original_tweet"></div>
+                <div class="original_tweet" style="width: 500px; margin: 10px auto;"></div>
             </div>
         </div>
     </body>
