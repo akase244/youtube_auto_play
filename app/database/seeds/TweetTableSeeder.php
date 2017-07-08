@@ -9,7 +9,7 @@ use Goodby\CSV\Import\Standard\LexerConfig;
 class TweetTableSeeder extends Seeder
 {
     const CSV_FILENAME = 'tweets.csv';
-    
+
     /**
      * Run the database seeds.
      *
@@ -32,13 +32,13 @@ class TweetTableSeeder extends Seeder
             $tweetText = $row[5];
             // expanded_urls
             $expectYoutubeUrls = $row[9];
-            
+
             // expanded_urlsに値がセットされている場合
             if ($expectYoutubeUrls) {
                 /**
                  * ツイート内に1件だけURLが存在する場合、expanded_urlsはそのURLがセットされている
                  * ,"https://youtu.be/fWffzdd2XMM"
-                 * 
+                 *
                  * ツイート内に複数のURLが存在する場合、expanded_urlsはカンマ区切りでURLがセットされている
                  * ,"https://youtu.be/-uwacLOnyKA,https://youtu.be/d6XsYyP1QXw,https://youtu.be/7rzD52hOChs"
                  */
@@ -68,11 +68,11 @@ class TweetTableSeeder extends Seeder
                 }
             }
         });
-        $lexer->parse(base_path(self::CSV_FILENAME), $interpreter);
+        $lexer->parse(storage_path('app/'.self::CSV_FILENAME), $interpreter);
 
         $this->command->info('[End] import data. ['.date('Y/m/d H:i:s').']');
     }
-    
+
     private function saveTweet ($tweetId, $tweetText, $expectYoutubeUrl)
     {
         // クエリーパラメータを抽出
@@ -92,7 +92,7 @@ class TweetTableSeeder extends Seeder
             $param = null;
         }
     }
-    
+
     private function getOriginalUrl ($url)
     {
         $curl = curl_init();
