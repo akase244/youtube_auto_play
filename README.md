@@ -3,6 +3,7 @@ youtube auto play from own tweets.
 
 ## これは何？
 シードを実行すると、Twitterの全ツイート履歴を読み込み、ツイートの中からYouTubeのリンクが記載されているものをDBに保存します。
+
 YouTube Auto PlayのURLにアクセスすると、YouTubeのリンクを含むツイートをランダムで10ツイート抽出し、自動的にYouTubeを再生します。
 
 
